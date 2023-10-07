@@ -1,0 +1,58 @@
+.Profile {
+    border: 1px rgb(209, 209, 209) solid;
+    width: 300px;
+    height: 360px;
+    margin: 10px 0 30px 10px;
+}
+
+.Description {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 8px;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 0 30px 0;
+}
+
+.Avatar {
+    width: 120px;
+    height: 120px;
+}
+
+.Username {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.desc {
+    color: rgb(146, 146, 146);
+    margin: 0;
+}
+
+.Stats {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100px;
+}
+
+.Stat {
+    display: flex;
+    width: 100px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #F3F6F9;
+    border: 1px rgb(209, 209, 209) solid;
+}
+
+.Label {
+    font-size: 12px;
+    color: rgb(150, 150, 150);
+}
+
+.Quantity {
+    font-weight: bold;
+}
