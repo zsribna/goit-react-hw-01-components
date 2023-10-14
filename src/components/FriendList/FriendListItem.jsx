@@ -1,32 +1,25 @@
-import css from './FriendList.module.css';
 import PropTypes from 'prop-types';
+import clsx from 'clsx';
+import css from './FriendListItem.module.css';
 
-const FriendListItem = ({ friends }) => {
-  const { id, isOnline, avatar, name } = friends;
+export const FriendListItem = ({ avatar, name, isOnline }) => {
   return (
-    <>
-      <li key={id} className={css.item}>
-        {isOnline === true ? (
-          <span className={css.status}>{isOnline}</span>
-        ) : (
-          <span className={css.status_red}>{isOnline}</span>
-        )}
-
-        <img className={css.avatar} src={avatar} alt="User avatar" width="48" />
-        <p className={css.name}>{name}</p>
-      </li>
-    </>
+    <li className={css.item}>
+      <span
+        className={clsx(css.status, {
+          [css.online]: isOnline,
+        })}
+      >
+        {isOnline}
+      </span>
+      <img className={css.avatar} src={avatar} alt="User avatar" width="48" />
+      <p className={css.name}>{name}</p>
+    </li>
   );
 };
 
-export default FriendListItem;
-FriendListItem.ropTypes = {
-  stats: PropTypes.arrayOf(
-    PropTypes.exact({
-      id: PropTypes.number.isRequired,
-      name: PropTypes.string.isRequired,
-      avatar: PropTypes.string.isRequired,
-      isOnline: PropTypes.bool,
-    })
-  ),
+FriendListItem.propTypes = {
+  avatar: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  isOnline: PropTypes.bool.isRequired,
 };

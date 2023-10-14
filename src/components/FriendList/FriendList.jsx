@@ -1,26 +1,28 @@
-import { nanoid } from 'nanoid';
-import css from './FriendList.module.css';
 import PropTypes from 'prop-types';
-import FriendListItem from './FriendListItem';
+import css from './FriendList.module.css';
+import { FriendListItem } from './FriendListItem';
 
-const FriendList = ({ friends }) => {
+export const FriendList = ({ friends }) => {
   return (
-    <ul className={css.friend_list}>
-      {friends &&
-        friends.map(friend => {
-          return <FriendListItem key={nanoid()} friends={friend} />;
-        })}
+    <ul className={css.friendList}>
+      {friends.map(({ avatar, name, isOnline, id }) => (
+        <FriendListItem
+          avatar={avatar}
+          name={name}
+          isOnline={isOnline}
+          key={id}
+        />
+      ))}
     </ul>
   );
 };
 
-export default FriendList;
 FriendList.propTypes = {
-  stats: PropTypes.arrayOf(
+  friends: PropTypes.arrayOf(
     PropTypes.exact({
       avatar: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
-      isOnline: PropTypes.bool,
+      isOnline: PropTypes.bool.isRequired,
       id: PropTypes.number.isRequired,
     })
   ),
